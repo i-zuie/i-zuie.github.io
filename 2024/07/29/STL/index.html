@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+
+  
+    <meta name="description" content="Zuie&#39;s Blog">
+  
+
+  
+
+  
+    <meta name="author" content="Zuie">
+  
+
+  
+
+  
+
+  <title>STL | Zuie</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(/back_img.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          Zuie
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">STL</h1>
+          <h2 class="title-sub-wrap">
+            <strong>Zuie</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2024-07-29T06:06:56.000Z" itemprop="datePublished">2024-07-29</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/categories/%E7%AE%97%E6%B3%95/">📒 算法</a></li>
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/C/">🏷️ C++</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h2 id="vector动态数组"><a class="markdownIt-Anchor" href="#vector动态数组"></a> vector动态数组</h2>
+<h3 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h3>
+<ul>
+<li>
+<p>一维</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">vector&lt;<span class="type">double</span>&gt; b;</span><br></pre></td></tr></table></figure>
+<p>指定长度和初始值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(n)</span></span>;  <span class="comment">// 定义长度为n的数组，初始值为0</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(n,<span class="number">1</span>)</span></span>; <span class="comment">// 定义长度为n的数组，初始值为1</span></span><br></pre></td></tr></table></figure>
+<p>指定元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; a&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;  <span class="comment">// 初始化数组a，数组长度为5</span></span><br></pre></td></tr></table></figure>
+<p>拷贝初始化</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n<span class="number">+1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; c = a;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>二维</p>
+<p>固定第一维，第二维可变化。行固定，列可变。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; v[<span class="number">5</span>]; <span class="comment">// 相当于定义了5个vector数组</span></span><br><span class="line">v[<span class="number">1</span>].<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">v[<span class="number">2</span>].<span class="built_in">push_back</span>(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>行列均可变</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; v;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; t1&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; t2&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">v.<span class="built_in">push</span>(t1);</span><br><span class="line">v.<span class="built_in">push</span>(t2);</span><br><span class="line">v.<span class="built_in">push</span>(&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>初始化<code>n+1</code>行<code>m+1</code>列的数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">a</span>(n<span class="number">+1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m<span class="number">+1</span>,<span class="number">0</span>));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="成员函数"><a class="markdownIt-Anchor" href="#成员函数"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; c;</span><br><span class="line">c.<span class="built_in">front</span>();	<span class="comment">// 返回数组第一个元素</span></span><br><span class="line">c.<span class="built_in">back</span>();	<span class="comment">// 返回数组中的最后一个元素</span></span><br><span class="line">c.<span class="built_in">pop_back</span>();	<span class="comment">// 删除最后一个元素</span></span><br><span class="line">c.<span class="built_in">push_back</span>();	<span class="comment">// 在尾部添加一个元素</span></span><br><span class="line">c.<span class="built_in">size</span>();	<span class="comment">// 返回数组的大小，元素个数</span></span><br><span class="line">c.<span class="built_in">clear</span>();	<span class="comment">// 删除数组中的元素</span></span><br><span class="line">c.<span class="built_in">resize</span>(n,v); 	<span class="comment">// 将数组c的大小改为n，且新插入的元素赋值为v</span></span><br><span class="line">c.<span class="built_in">insert</span>(it,x);	<span class="comment">// 向任意迭代器it插入一个元素x</span></span><br><span class="line">c.<span class="built_in">erase</span>(first,last);	<span class="comment">// 删除[first,last)的所有元素</span></span><br><span class="line">c.<span class="built_in">erase</span>(it);	<span class="comment">//删除迭代器所指向的元素</span></span><br><span class="line">c.<span class="built_in">begin</span>();	<span class="comment">// 返回首元素的迭代器</span></span><br><span class="line">c.<span class="built_in">end</span>();	<span class="comment">// 返回最后一个元素的后一个位置的迭代器</span></span><br><span class="line">c.<span class="built_in">empty</span>();	<span class="comment">// 判断数组是否为空，为空则返回真，反之返回假</span></span><br></pre></td></tr></table></figure>
+<h3 id="排序"><a class="markdownIt-Anchor" href="#排序"></a> 排序</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line"><span class="built_in">sort</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>());	<span class="comment">// [0,n)</span></span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n<span class="number">+1</span>)</span></span>;</span><br><span class="line"><span class="built_in">sort</span>(a.<span class="built_in">begin</span>()<span class="number">+1</span>,a.<span class="built_in">end</span>());	<span class="comment">// [1,n+1)</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问"><a class="markdownIt-Anchor" href="#访问"></a> 访问</h3>
+<ul>
+<li>
+<p>下标</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;a.<span class="built_in">size</span>()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">    cout&lt;&lt;a[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;cout&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>迭代器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator it = a.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = a.<span class="built_in">begin</span>();it!=a.<span class="built_in">end</span>();it++)&#123;</span><br><span class="line">    cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;cout&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>auto</p>
+<p>只能一次性访问完所有的元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp;x:a)&#123;</span><br><span class="line">    cin&gt;&gt;x;	<span class="comment">// 通过引用实现输入</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp;e:a)&#123;</span><br><span class="line">    cout&lt;&lt;e&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;cout&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="stack栈"><a class="markdownIt-Anchor" href="#stack栈"></a> stack栈</h2>
+<h3 id="初始化-2"><a class="markdownIt-Anchor" href="#初始化-2"></a> 初始化</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line">stack&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">stack&lt;string&gt; s;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数-2"><a class="markdownIt-Anchor" href="#成员函数-2"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">push</span>(elem);	<span class="comment">// 元素入栈</span></span><br><span class="line">s.<span class="built_in">pop</span>();		<span class="comment">// 移除栈顶元素 </span></span><br><span class="line">s.<span class="built_in">top</span>();		<span class="comment">// 获取栈顶元素,不删除</span></span><br><span class="line">s.<span class="built_in">empty</span>();		<span class="comment">// 检测栈内是否为空</span></span><br><span class="line">s.<span class="built_in">size</span>();		<span class="comment">// 返回栈内元素的个数</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问-2"><a class="markdownIt-Anchor" href="#访问-2"></a> 访问</h3>
+<p>栈只能对栈顶进行操作,所以只能按顺序从栈顶开始访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt; st;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++) st.<span class="built_in">push</span>(i);</span><br><span class="line"><span class="keyword">while</span>(!st.<span class="built_in">empty</span>())&#123;</span><br><span class="line">    <span class="type">int</span> tp = st.<span class="built_in">top</span>();</span><br><span class="line">    st.<span class="built_in">pop</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="queue队列"><a class="markdownIt-Anchor" href="#queue队列"></a> queue队列</h2>
+<h3 id="初始化-3"><a class="markdownIt-Anchor" href="#初始化-3"></a> 初始化</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line">queue&lt;<span class="type">int</span>&gt; q;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数-3"><a class="markdownIt-Anchor" href="#成员函数-3"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">front</span>();	<span class="comment">// 返回队首元素,不删除</span></span><br><span class="line">q.<span class="built_in">back</span>();	<span class="comment">// 返回队尾元素,不删除</span></span><br><span class="line">q.<span class="built_in">push</span>(elem);	<span class="comment">// 队尾入队列</span></span><br><span class="line">q.<span class="built_in">pop</span>();	<span class="comment">// 删除队首元素</span></span><br><span class="line">q.<span class="built_in">size</span>();	<span class="comment">// 返回队列中元素个数</span></span><br><span class="line">q.<span class="built_in">empty</span>();	<span class="comment">// 判断队列是否为空</span></span><br></pre></td></tr></table></figure>
+<h2 id="deque双端队列"><a class="markdownIt-Anchor" href="#deque双端队列"></a> deque双端队列</h2>
+<p>首尾均可插入和删除</p>
+<h3 id="初始化-4"><a class="markdownIt-Anchor" href="#初始化-4"></a> 初始化</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;deque&gt;</span></span></span><br><span class="line">deque&lt;<span class="type">int</span>&gt; dq;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数-4"><a class="markdownIt-Anchor" href="#成员函数-4"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">push_back</span>(x);	<span class="comment">// x插入队尾</span></span><br><span class="line"><span class="built_in">push_front</span>(x);	<span class="comment">// x插入队首</span></span><br><span class="line"><span class="built_in">back</span>();			<span class="comment">// 返回队尾元素</span></span><br><span class="line"><span class="built_in">front</span>();		<span class="comment">// 返回队首元素</span></span><br><span class="line"><span class="built_in">pop_back</span>();		<span class="comment">// 删除队尾元素</span></span><br><span class="line"><span class="built_in">pop_front</span>();	<span class="comment">// 删除队首元素</span></span><br><span class="line"><span class="built_in">erase</span>(iterator it);	<span class="comment">// 删除双端队列中的某一个元素</span></span><br><span class="line"><span class="built_in">erase</span>(iterator first,iterator last);	<span class="comment">// 删除双端队列中[first,last)中的元素</span></span><br><span class="line"><span class="built_in">empty</span>();	<span class="comment">// 判断deque是否空</span></span><br><span class="line"><span class="built_in">size</span>();		<span class="comment">// 返回deque的元素数量</span></span><br><span class="line"><span class="built_in">clear</span>();	<span class="comment">// 清空deque</span></span><br></pre></td></tr></table></figure>
+<h3 id="排序-2"><a class="markdownIt-Anchor" href="#排序-2"></a> 排序</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从小到大</span></span><br><span class="line"><span class="built_in">sort</span>(q.<span class="built_in">begin</span>(), q.<span class="built_in">end</span>())</span><br><span class="line"><span class="comment">//从大到小排序</span></span><br><span class="line"><span class="built_in">sort</span>(q.<span class="built_in">begin</span>(), q.<span class="built_in">end</span>(), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());<span class="comment">//deque里面的类型需要是int型</span></span><br><span class="line"><span class="built_in">sort</span>(q.<span class="built_in">begin</span>(), q.<span class="built_in">end</span>(), <span class="built_in">greater</span>());<span class="comment">//高版本C++才可以用</span></span><br></pre></td></tr></table></figure>
+<h2 id="priority_queue优先队列"><a class="markdownIt-Anchor" href="#priority_queue优先队列"></a> priority_queue优先队列</h2>
+<p>在队列基础上加上优先级，确保每次队首元素都是优先级最大的。</p>
+<h3 id="初始化-5"><a class="markdownIt-Anchor" href="#初始化-5"></a> 初始化</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>&gt; q;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数-5"><a class="markdownIt-Anchor" href="#成员函数-5"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">top</span>();	<span class="comment">// 访问队首元素</span></span><br><span class="line">q.<span class="built_in">push</span>(elem);	<span class="comment">// 元素elem入队列</span></span><br><span class="line">q.<span class="built_in">pop</span>();	<span class="comment">// 堆顶元素出队</span></span><br><span class="line">q.<span class="built_in">size</span>();	<span class="comment">// 队列元素个数</span></span><br><span class="line">q.<span class="built_in">empty</span>();	<span class="comment">// 是否为空</span></span><br></pre></td></tr></table></figure>
+<h3 id="优先级设置"><a class="markdownIt-Anchor" href="#优先级设置"></a> 优先级设置</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>&gt; q1; <span class="comment">// 大根堆</span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,less&lt;<span class="type">int</span>&gt; &gt; q2;	<span class="comment">// 大根堆</span></span><br><span class="line">priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt;&gt; q3; <span class="comment">// 小根堆</span></span><br></pre></td></tr></table></figure>
+<p>结构体优先级设置：可以在结构体内定义小于号重载，也可以定义在结构体外。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**1. 自定义全局比较规则**/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">  	<span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;</span><br><span class="line">  	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> node&amp; a, <span class="type">const</span> node&amp; b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;node,vector&lt;node&gt;,cmp&gt; q;  <span class="comment">// x大的在堆顶</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**2. 结构内定义**/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">  	<span class="type">int</span> x,y;</span><br><span class="line">    <span class="keyword">friend</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt; (node a, node b)&#123;	<span class="comment">// 两个结构体参数</span></span><br><span class="line">        <span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> node &amp;a) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> x &lt; a.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;node&gt; q;</span><br></pre></td></tr></table></figure>
+<p>特殊类型<code>pair</code>，默认先对<code>pair</code>的<code>first</code>进行降序排序，然后再对<code>second</code>降序排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; q;</span><br><span class="line">q.<span class="built_in">push</span>(&#123;<span class="number">1</span>,<span class="number">2</span>&#125;);</span><br><span class="line">q.<span class="built_in">push</span>(&#123;<span class="number">2</span>,<span class="number">1</span>&#125;);</span><br><span class="line">q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(<span class="number">1</span>,<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="map映射"><a class="markdownIt-Anchor" href="#map映射"></a> map映射</h2>
+<h3 id="初始化-6"><a class="markdownIt-Anchor" href="#初始化-6"></a> 初始化</h3>
+<p><code>map</code>特性：<code>map</code>按照键的顺序从小到大自动排序，但前提必须是键的类型可以进行比较大小。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line">map&lt;string,string&gt; mp;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数-6"><a class="markdownIt-Anchor" href="#成员函数-6"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mp.<span class="built_in">find</span>(key); 	<span class="comment">// 查找key所对用的元素的位置，当数据存在时，返回数据所在位置的迭代器，不存在时，返回mp.end()</span></span><br><span class="line">mp.<span class="built_in">erase</span>(it); 	<span class="comment">// 删除迭代器对应的键和值</span></span><br><span class="line">mp.<span class="built_in">erase</span>(key); 	<span class="comment">// 删除键和对应的值</span></span><br><span class="line">mp.<span class="built_in">erase</span>(first,last);	<span class="comment">// 删除[last,first)对应的键和值</span></span><br><span class="line">mp.<span class="built_in">size</span>();		<span class="comment">// 返回映射对数</span></span><br><span class="line">mp.<span class="built_in">clear</span>();		<span class="comment">// 清空map中的所有元素</span></span><br><span class="line">mp.<span class="built_in">insert</span>();	<span class="comment">// 插入元素，mp.insert(&#123;key,val&#125;)</span></span><br><span class="line">mp.<span class="built_in">empty</span>();		<span class="comment">// 判断map是否为空</span></span><br><span class="line">mp.<span class="built_in">begin</span>();		<span class="comment">// 指向map的第一个元素的迭代器</span></span><br><span class="line">mp.<span class="built_in">end</span>();		<span class="comment">// 指向map尾部的迭代器，最后一个元素的下一个地址</span></span><br><span class="line">mp.<span class="built_in">rbegin</span>();	<span class="comment">// map最后一个元素的迭代器</span></span><br><span class="line">mp.<span class="built_in">rend</span>();		<span class="comment">// mao的第一个元素前面的迭代器</span></span><br><span class="line">mp.<span class="built_in">count</span>(key);	<span class="comment">// 虽为统计个数，实为判断元素是否存在，存在返回1，不存在返回0</span></span><br><span class="line">mp.<span class="built_in">lower_bound</span>();	<span class="comment">// 返回一个迭代器，指向键值&gt;=key的第一个元素</span></span><br><span class="line">mp.<span class="built_in">upper_bound</span>();	<span class="comment">// 返回一个迭代器，指向键值&gt;key的第一个元素</span></span><br></pre></td></tr></table></figure>
+<p>查找某元素是否存在时，可以使用如下函数判断：</p>
+<ul>
+<li><code>mp.find()</code></li>
+<li><code>mp.count()</code></li>
+</ul>
+<h3 id="遍历"><a class="markdownIt-Anchor" href="#遍历"></a> 遍历</h3>
+<ul>
+<li>
+<p>正向遍历</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">mp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">mp[<span class="number">2</span>] = <span class="number">2</span>;</span><br><span class="line">mp[<span class="number">3</span>] = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">auto</span> it = mp.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">while</span>(it != mp.<span class="built_in">end</span>())&#123;</span><br><span class="line">    cout&lt;&lt;it-&gt;first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    it ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>反向遍历</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line">mp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">mp[<span class="number">2</span>] = <span class="number">2</span>;</span><br><span class="line">mp[<span class="number">3</span>] = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">auto</span> it = mp.<span class="built_in">rbegin</span>();</span><br><span class="line"><span class="keyword">while</span>(it != mp.<span class="built_in">rend</span>())&#123;</span><br><span class="line">    cout&lt;&lt;it-&gt;first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    it ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="添加"><a class="markdownIt-Anchor" href="#添加"></a> 添加</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string,string&gt; mp;</span><br><span class="line"><span class="comment">// 1. </span></span><br><span class="line">mp[<span class="string">&quot;学习&quot;</span>] = <span class="string">&quot;看书&quot;</span>:</span><br><span class="line"><span class="comment">// 2.</span></span><br><span class="line">mp.<span class="built_in">insert</span>(<span class="built_in">make_pair</span>(<span class="string">&quot;vegetable&quot;</span>,<span class="string">&quot;蔬菜&quot;</span>));</span><br><span class="line">mp.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;string,string&gt; (<span class="string">&quot;fruit&quot;</span>,<span class="string">&quot;水果&quot;</span>));</span><br><span class="line">mp.<span class="built_in">insert</span>(&#123;<span class="string">&quot;sky&quot;</span>,<span class="string">&quot;天空&quot;</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="访问-3"><a class="markdownIt-Anchor" href="#访问-3"></a> 访问</h3>
+<ul>
+<li>
+<p>迭代器访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string,string&gt;::iterator it;</span><br><span class="line"><span class="keyword">for</span>(it = mp.<span class="built_in">begin</span>();it!=mp.<span class="built_in">end</span>();it ++)&#123;</span><br><span class="line">    cout&lt;&lt;it-&gt;first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>智能指针访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> e : mp)</span><br><span class="line">    cout&lt;&lt;e.first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;e.second&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">cout&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>指定单个元素访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用find函数找到元素迭代器</span></span><br><span class="line">map&lt;<span class="type">char</span>,<span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">find</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">cout&lt;&lt;it-&gt;first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="unordered_map"><a class="markdownIt-Anchor" href="#unordered_map"></a> unordered_map</h3>
+<p><code>map</code>内部元素按照键值进行排序，而<code>unordered_map</code>内部元素无序。成员函数基本一致，在查询容器内部元素时，应该先判断存在与否，再进行索引。</p>
+<h2 id="set集合"><a class="markdownIt-Anchor" href="#set集合"></a> set集合</h2>
+<h3 id="初始化-7"><a class="markdownIt-Anchor" href="#初始化-7"></a> 初始化</h3>
+<p><code>set</code>里面的元素不重复且有序（从小到大排序）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line">set&lt;<span class="type">int</span>&gt; s;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数-7"><a class="markdownIt-Anchor" href="#成员函数-7"></a> 成员函数</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">begin</span>();	<span class="comment">// 返回set容器的第一个元素的地址</span></span><br><span class="line">s.<span class="built_in">end</span>();	<span class="comment">// 返回set容器的最后一个容器的下一个地址</span></span><br><span class="line">s.<span class="built_in">rbegin</span>();	<span class="comment">// 返回逆序迭代器，指向容器元素的最后一个位置</span></span><br><span class="line">s.<span class="built_in">rend</span>();	<span class="comment">// 返回逆序迭代器，指向容器第一个元素前面的位置</span></span><br><span class="line">s.<span class="built_in">clear</span>(); 	<span class="comment">// 删除set容器中的所有的元素</span></span><br><span class="line">s.<span class="built_in">empty</span>();	<span class="comment">// 判断set容器是否为空</span></span><br><span class="line">s.<span class="built_in">insert</span>();	<span class="comment">// 插入一个元素</span></span><br><span class="line">s.<span class="built_in">size</span>(); 	<span class="comment">// 返回当前set容器中的元素个数</span></span><br><span class="line"><span class="built_in">erase</span>(iterator); 	<span class="comment">// 删除迭代器iterator指向的值</span></span><br><span class="line"><span class="built_in">erase</span>(first,second);<span class="comment">// 删除迭代器器first和second之间的值</span></span><br><span class="line"><span class="built_in">erase</span>(key_value);	<span class="comment">// 删除值为key_value的值</span></span><br><span class="line">s.<span class="built_in">find</span>(element);	<span class="comment">// 查找元素element，有则返回对应元素的迭代器，无则返回end()</span></span><br><span class="line">s.<span class="built_in">count</span>(element);	<span class="comment">// 找到set中元素出现的个数，存在则为1，不存在则为0</span></span><br><span class="line">s.<span class="built_in">lower_bound</span>(k);	<span class="comment">// 返回大于等于k的第一个元素的迭代器</span></span><br><span class="line">s.<span class="built_in">upper_bound</span>(k);	<span class="comment">// 返回大于k的第一个元素的迭代器</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问-4"><a class="markdownIt-Anchor" href="#访问-4"></a> 访问</h3>
+<ul>
+<li>
+<p>迭代器访问</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(set&lt;<span class="type">int</span>&gt;::iterator it = s.<span class="built_in">begin</span>();it!=s.<span class="built_in">end</span>();it ++)</span><br><span class="line">    cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>智能指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i:s)</span><br><span class="line">    cout&lt;&lt;i&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>访问最后一个元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line">cout&lt;&lt;*s.<span class="built_in">rbegin</span>()&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt;::iterator iter = s.<span class="built_in">end</span>();</span><br><span class="line">iter --;</span><br><span class="line">cout&lt;&lt;(*iter)&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line">cout&lt;&lt;*(--s.<span class="built_in">end</span>())&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="排序-3"><a class="markdownIt-Anchor" href="#排序-3"></a> 排序</h3>
+<ul>
+<li>
+<p>基础数据类型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt; s1;</span><br><span class="line">set&lt;<span class="type">int</span>,greater&lt;<span class="type">int</span>&gt;&gt; s2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;</span><br><span class="line">  	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> <span class="type">int</span>&amp; u, <span class="type">const</span> <span class="type">int</span>&amp; v)</span><span class="type">const</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> u&gt;v;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;</span><br><span class="line">set&lt;<span class="type">int</span>,cmp&gt; s;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 初始化时使用匿名函数定义比较规则</span></span><br><span class="line">set&lt;<span class="type">int</span>, function&lt;<span class="type">bool</span>(<span class="type">int</span>, <span class="type">int</span>)&gt;&gt; <span class="built_in">s</span>([&amp;](<span class="type">int</span> i, <span class="type">int</span> j)&#123;</span><br><span class="line">    <span class="keyword">return</span> i &gt; j; <span class="comment">// 从大到小</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++)</span><br><span class="line">    s.<span class="built_in">insert</span>(i);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> x : s)</span><br><span class="line">    cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>组合数据类型</p>
+<p>重载结构体运算符</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> Point &amp;p) <span class="type">const</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x == p.x)</span><br><span class="line">            <span class="keyword">return</span> y &lt; p.y;</span><br><span class="line">        <span class="keyword">return</span> x &lt; p.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">set&lt;Point&gt; s;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">    <span class="type">int</span> x,y;</span><br><span class="line">    cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    s.<span class="built_in">insert</span>(&#123;x,y&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="其他set"><a class="markdownIt-Anchor" href="#其他set"></a> 其他set</h3>
+<p><code>multiset</code>: 元素可以重复，且元素有序</p>
+<p><code>unordered_set</code>: 元素无序且只能出现一次</p>
+<p><code>unordered_multiset</code>: 元素无序且可以出现多次</p>
+<h2 id="pair二元组"><a class="markdownIt-Anchor" href="#pair二元组"></a> pair二元组</h2>
+<h3 id="初始化-8"><a class="markdownIt-Anchor" href="#初始化-8"></a> 初始化</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="function">pair&lt;string, <span class="type">int</span>&gt; <span class="title">p</span><span class="params">(<span class="string">&quot;aa&quot;</span>,<span class="number">1</span>)</span></span>;</span><br><span class="line">pair&lt;string, <span class="type">int</span>&gt; p;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;string,<span class="type">int</span>&gt; PII;</span><br><span class="line">PII p;</span><br><span class="line"></span><br><span class="line">p = &#123;<span class="string">&quot;bb&quot;</span>,<span class="number">2</span>&#125;;</span><br><span class="line">p = &#123;<span class="string">&quot;cc&quot;</span>,<span class="number">3</span>&#125;;</span><br><span class="line">p = <span class="built_in">pair</span>&lt;string,<span class="type">int</span>&gt; (<span class="string">&quot;wang&quot;</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="访问-5"><a class="markdownIt-Anchor" href="#访问-5"></a> 访问</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; p[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)&#123;</span><br><span class="line">    cout&lt;&lt;p[i].first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;p[i].second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="string字符串"><a class="markdownIt-Anchor" href="#string字符串"></a> string字符串</h2>
+<h2 id="bitset"><a class="markdownIt-Anchor" href="#bitset"></a> bitset</h2>
+<h2 id="array数组"><a class="markdownIt-Anchor" href="#array数组"></a> array数组</h2>
+<h2 id="tuple元组"><a class="markdownIt-Anchor" href="#tuple元组"></a> tuple元组</h2>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/07/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">机器学习</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+    <div class="valine-container comments-container content-padding--primary soft-size--large soft-style--box">
+      <div id="valine_thread" class="valine-thread"></div>
+    </div>
+    <script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script type="text/javascript" src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script type="text/javascript">
+      new Valine({
+        el: "#valine_thread",
+        appId: "iUmAxSt8eHBaS6ACCDRvUtym-gzGzoHsz",
+        appKey: "H3WbP7A1HKekdSLosZKQFhAe",
+        avatar: "mm",
+        placeholder: "随便说点什么叭～",
+        notify: true,
+        visitor: true,
+        pageSize: 10,
+      });
+    </script>
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="/photo.jpg" class="soft-size--round soft-style--box" alt="Zuie">
+    
+    
+      <h2>Zuie</h2>
+    
+    
+      <p>Life is full of flowers.</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>3</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        1
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        2
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>懒人一枚，不定期更新</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E7%AE%97%E6%B3%95/">
+            算法 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/C/" style="font-size: 20px;" class="tags-cloud-10">C++</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" style="font-size: 10px;" class="tags-cloud-0">数学知识</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/miiiku/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2024 <a href="/" target="_blank">Zuie</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
